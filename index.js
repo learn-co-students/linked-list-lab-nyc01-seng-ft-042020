@@ -12,9 +12,15 @@ function next(head, collection) {
     return collection[`${nextAddress}`];
 }
 
-function nodeAt(idx, linkedList, collection) { 
-
-}
+function indexAt(node, collection, linkedList){
+    let currentNode = headNode(linkedList, collection);
+    let currentIdx = 0
+    while(currentNode != node){
+      currentIdx++
+      currentNode = next(currentNode, collection)
+    }
+    return currentIdx
+  }
 
 function indexAt(node, collection, linkedList){
     let currentNode = headNode(linkedList, collection);
