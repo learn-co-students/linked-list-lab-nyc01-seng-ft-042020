@@ -8,8 +8,8 @@ function headNode(linkedList, collection) {
 }
 
 function next(head, collection) {
-    let nextAddress = head.next;
-    return collection[`${nextAddress}`];
+    let nextNode = head.next;
+    return collection[`${nextNode}`];
 }
 
 function indexAt(node, collection, linkedList){
@@ -32,3 +32,19 @@ function indexAt(node, collection, linkedList){
     return currentIdx
   }
 
+function nodeAt(idx, linkedList, collection) {
+    let currentNode = headNode(linkedList, collection)
+    for (let i = 0; i < idx; i++) {
+        currentNode = next(currentNode, collection);
+    }
+    return currentNode
+}
+
+function addressAt(idx, linkedList, collection) {
+    if (idx === 0) {
+        return linkedList;
+    } else { 
+        let node = nodeAt(idx-1, linkedList, collection);
+        return node.next;
+    }
+}
